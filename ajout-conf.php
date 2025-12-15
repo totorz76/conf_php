@@ -1,23 +1,6 @@
 <?php
 include 'fonctions.php';
 require 'connexion-bd.php';
-// // ===============================================
-// // CONFIG PDO
-// // ===============================================
-// $host    = 'localhost';
-// $db      = 'conference';
-// $user    = 'root';
-// $pass    = '';
-// $charset = 'utf8mb4';
-
-// $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-
-// $options = [
-//     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-//     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-//     PDO::ATTR_EMULATE_PREPARES   => false,
-// ];
-
 // ===============================================
 // VARIABLES FORMULAIRE
 // ===============================================
@@ -118,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
 
     // PAYS
     dg($pays);
-    // dd($liste_pays);
+    //dd($liste_pays);
     if ($pays === '') {
         $errors['pays'] = "Le pays est obligatoire.";
     } elseif (!in_array($pays, $liste_pays)) {
@@ -206,6 +189,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -232,7 +216,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
         <div>
             <label class="form-label mt-4">Nom</label>
             <input type="text" class="form-control" name="nom" value="<?= htmlspecialchars($nom) ?>">
-            <?php if (!empty($errors['nom']) && !empty($errors['nom'])): ?>
+            <?php if (!empty($errors['nom']) && isset($errors['nom'])): ?>
                 <div class="alert alert-warning mt-1"><?= $errors['nom'] ?></div>
             <?php endif; ?>
         </div>

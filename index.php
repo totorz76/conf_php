@@ -1,13 +1,14 @@
 <?php 
 include 'fonctions.php';
 require 'connexion-bd.php'; 
+
 $pdo = new PDO($dsn, $user, $pass, $options);
 $sql = "SELECT * FROM participants";
 $stm = $pdo->query($sql);
 $conferences = $stm->fetchAll();
-dd($conferences)
-?>
+//dd($conferences);
 
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -28,15 +29,19 @@ dd($conferences)
       <th scope="col">Id</th>
       <th scope="col">Nom</th>
       <th scope="col">Email</th>
-      <th scope="col">Type de participants</th>
-      <th scope="col">Centres d'intérets</th>
+      <th scope="col">Type de participant</th>
+      <th scope="col">Centres d’intérê</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
+   
     <tr class="table-light">
-      
+
     </tr>
+
+  </tbody>
+</table>
 </div>
 </body>
 </html>
